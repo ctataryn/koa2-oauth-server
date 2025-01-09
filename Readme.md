@@ -1,10 +1,10 @@
-An complete executable example here at: https://github.com/ctataryn/koa2-oauth-server/tree/master/examples/complete-example.
+A complete executable example here at: https://github.com/ctataryn/koa2-oauth-server/tree/master/examples/complete-example.
 
 Originally this repository is forked from [express-oauth-server](https://github.com/oauthjs/express-oauth-server) by https://github.com/waychan23. The reason why he choose [express-oauth-server](https://github.com/oauthjs/express-oauth-server) over [koa-oauth-server](https://github.com/oauthjs/koa-oauth-server) is the latter seems to be a little out of maintenance.
 
 Complete, compliant and well tested module for implementing an OAuth2 Server/Provider with [koa2](https://github.com/koajs/koa) in [node.js](http://nodejs.org/).
 
-**Note**: This is the koa2 wrapper has been updated to use [@node-oauth/oauth2-server](https://github.com/node-oauth/node-oauth2-server), because [node-oauth2-server](oauthjs/node-oauth2-server) does [not seem to be maintained](https://github.com/oauthjs/node-oauth2-server/issues/753#issuecomment-1696949532) anymore.
+**Note**: This is koa2 wrapper has been updated to use [@node-oauth/oauth2-server](https://github.com/node-oauth/node-oauth2-server), because [node-oauth2-server](oauthjs/node-oauth2-server) does [not seem to be maintained](https://github.com/oauthjs/node-oauth2-server/issues/753#issuecomment-1696949532) anymore.
 
 ## Installation
 The repo has not yet been added to npmjs.com, for now add the following to your `dependencies` section of `package.json`:
