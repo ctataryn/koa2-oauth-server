@@ -1,18 +1,19 @@
-An complete executable example here at: https://github.com/waychan23/koa2-oauth-server/tree/master/examples/complete-example.
+An complete executable example here at: https://github.com/ctataryn/koa2-oauth-server/tree/master/examples/complete-example.
 
-This repository is forked from [express-oauth-server](https://github.com/oauthjs/express-oauth-server). The reason why I choose [express-oauth-server](https://github.com/oauthjs/express-oauth-server) over [koa-oauth-server](https://github.com/oauthjs/koa-oauth-server) is the latter seems to be a little out of maintenance.
+Originally this repository is forked from [express-oauth-server](https://github.com/oauthjs/express-oauth-server) by https://github.com/waychan23. The reason why he choose [express-oauth-server](https://github.com/oauthjs/express-oauth-server) over [koa-oauth-server](https://github.com/oauthjs/koa-oauth-server) is the latter seems to be a little out of maintenance.
 
 Complete, compliant and well tested module for implementing an OAuth2 Server/Provider with [koa2](https://github.com/koajs/koa) in [node.js](http://nodejs.org/).
 
-This is the koa2 wrapper for [oauth2-server](https://github.com/oauthjs/node-oauth2-server).
+This is the koa2 wrapper has been updated to use for [@node-oauth/oauth2-server](https://github.com/node-oauth/node-oauth2-server).
 
 ## Installation
+The repo has not yet been added to npmjs.com, for now add the following to your `dependencies` section of `package.json`:
 
-    $ npm install waychan23/koa2-oauth-server
+    "koa2-oauth-server": "https://github.com/ctataryn/koa2-oauth-server"
 
 ## Quick Start
 
-The module provides two middlewares - one for granting tokens and another to authorize them. `koa2-oauth-server` and, consequently `oauth2-server`, expect the request body to be parsed already.
+The module provides two middlewares - one for granting tokens and another to authorize them. `koa2-oauth-server` and, consequently `@node-oauth/oauth2-server`, expect the request body to be parsed already.
 The following example uses `koa-bodyparser` but you may opt for an alternative library.
 
 ```js
