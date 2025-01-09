@@ -5,8 +5,8 @@
  */
 
 var KoaOAuthServer = require('../../');
-var Request = require('oauth2-server').Request;
-var Response = require('oauth2-server').Response;
+var Request = require('@node-oauth/oauth2-server').Request;
+var Response = require('@node-oauth/oauth2-server').Response;
 var koa = require('koa');
 var request = require('supertest');
 var sinon = require('sinon');
@@ -16,7 +16,7 @@ var should = require('should');
  * Test `KoaOAuthServer`.
  */
 
-describe('KoaOAuthServer', function() {
+describe('Unit: KoaOAuthServer', function() {
 	var app;
 
 	beforeEach(function() {

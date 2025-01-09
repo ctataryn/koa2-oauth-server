@@ -5,8 +5,8 @@
  */
 
 var KoaOAuthServer = require('../../');
-var InvalidArgumentError = require('oauth2-server/lib/errors/invalid-argument-error');
-var NodeOAuthServer = require('oauth2-server');
+var InvalidArgumentError = require('@node-oauth/oauth2-server/lib/errors/invalid-argument-error');
+var NodeOAuthServer = require('@node-oauth/oauth2-server');
 var request = require('supertest');
 var should = require('should');
 var sinon = require('sinon');
@@ -17,7 +17,7 @@ var bodyParser = require('koa-bodyparser');
  * Test `KoaOAuthServer`.
  */
 
-describe('KoaOAuthServer', function() {
+describe('Integration: KoaOAuthServer', function() {
 	var app;
 
 	beforeEach(function() {

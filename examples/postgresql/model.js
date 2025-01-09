@@ -13,13 +13,14 @@ module.exports.getAccessToken = function(bearerToken) {
   return pg.query('SELECT access_token, access_token_expires_on, client_id, refresh_token, refresh_token_expires_on, user_id FROM oauth_tokens WHERE access_token = $1', [bearerToken])
     .then(function(result) {
       var token = result.rows[0];
-
-      return {
-        accessToken: token.access_token,
-        client: {id: token.client_id},
-        expires: token.expires,
-        user: {id: token.userId}, // could be any object
-      };
+      if (token) {
+        return {
+          accessToken: token.access_token,
+          accessTokenExpiresAt: token.access_token_expires_on,
+          client: {id: token.client_id},
+          user: {id: token.userId}, // could be any object
+        };
+      }
     });
 };
 
@@ -51,7 +52,18 @@ module.exports.getClient = function *(clientId, clientSecret) {
 module.exports.getRefreshToken = function *(bearerToken) {
   return pg.query('SELECT access_token, access_token_expires_on, client_id, refresh_token, refresh_token_expires_on, user_id FROM oauth_tokens WHERE refresh_token = $1', [bearerToken])
     .then(function(result) {
-      return result.rowCount ? result.rows[0] : false;
+      if (!result.rowCount) {
+        return false;
+      }
+
+      var token = result.rows[0];
+
+      return {
+        refreshToken: token.refresh_token,
+        refreshTokenExpiresAt: token.refresh_token_expires_on,
+        client: {id: token.client_id},
+        user: {id: token.user_id}, // could be any object
+      };
     });
 };
 
@@ -79,6 +91,14 @@ module.exports.saveAccessToken = function *(token, client, user) {
     token.refreshTokenExpiresOn,
     user.id
   ]).then(function(result) {
-    return result.rowCount ? result.rows[0] : false; // TODO return object with client: {id: clientId} and user: {id: userId} defined
+    var token = result.rows[0];
+    if (token) {
+      return {
+        accessToken: token.access_token,
+        accessTokenExpiresAt: token.access_token_expires_on,
+        client: {id: token.client_id},
+        user: {id: token.userId}, // could be any object
+      };
+    }
   });
 };
